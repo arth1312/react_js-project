@@ -1,0 +1,61 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter-container{
+    width: 600px;
+    background: linear-gradient(185deg, #0000FF, #4B0082);
+    border-radius: 15px;
+    padding: 40px 35px;
+}
+.counter-container h1{
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: white;
+}
+.counter-display{
+    font-size: 42px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: white;
+}
+.counter-buttons button{
+    padding: 20px 30px;
+    font-size: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    margin-bottom: 15px;
+    transition-duration: 1s;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+.counter-buttons button:hover{
+    border: none;
+    background-color: white;
+    color: black;
+}
+.counter-buttons button:first-child{
+    margin-right: 10px;
+}
+.btn-reset{
+    padding: 20px 90px;
+    font-size: 18px;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    transition-duration: 1s;
+}
+.btn-reset:hover{
+    border: none;
+    background-color: white;
+    color: black;
+}
