@@ -14,7 +14,7 @@ class Userprofilecard extends Component {
                 </div>
 
                 <div className="profile-card-contact">
-                   <h4 className="profile_name">{this.props.name}</h4>
+                   <h4 className="profile_name">{this.props.name}</h4> 
                     <div>
                         <h6 className="profile_age">{this.props.age}</h6>
                         <p className="profile_gender">{this.props.gender}</p>
