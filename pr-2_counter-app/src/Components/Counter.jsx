@@ -12,7 +12,7 @@ const Counter = () => {
     function  handalDec(){
         if(count >  0) {
        setCount(count - 1 )
-        }
+        } 
         else if(count == 0){
             alert("Counter already at 0")
         }
