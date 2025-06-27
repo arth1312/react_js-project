@@ -1,0 +1,126 @@
+.user-review{
+    max-width: 600px;
+    margin: 32px auto;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c3e50;
+}
+.user-review h2{
+    color: #0015ff;
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 32px;
+    position: relative;
+}
+.user-review h2::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85px;
+    height: 2.5px;
+    background: linear-gradient(80deg, #0015ff, #b854ff);
+}
+.user-review form{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.input-field{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.input-field label{
+    font-weight: 600;
+    color: #0015ff;
+    font-size: 15.2px;
+}
+.input-field input,
+.input-field textarea{
+    padding: 12.8px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+.input-field input:focus,
+.input-field textarea:focus{
+    outline: none;
+    border-color: #0015ff;
+    box-shadow: 0 0 0 2px rgba(26, 35, 126, 0.2);
+}
+.input-field textarea{
+    min-height: 120px;
+    resize: vertical;
+}
+.star-rating .star{
+    font-size: 28.8px;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.star-rating .star.filled{
+    color: #ffc107;
+}
+.star-rating .star:hover{
+    transform: scale(1.2);
+    color: #ffc107;
+}
+button[type="submit"]{
+    background: linear-gradient(135deg, #0015ff, #b854ff);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+hr{
+    border: none;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, #0015ff, transparent);
+    margin: 40px 0;
+}
+.review-list h3{
+    color: #0015ff;
+    margin-bottom: 24px;
+    font-size: 24px;
+    text-align: center;
+}
+.review-card{
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+    border-left: 3.2px solid #0015ff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.review-card h4{
+    color: #0015ff;
+    margin-bottom: 8px;
+    font-size: 17.6px;
+}
+.review-card h6{
+    color: #4c4c4c;
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.review-card p{
+    color: #2c3e50;
+    line-height: 1.6;
+    margin: 8px 0;
+}
+.review-card p:nth-of-type(1){
+    color: #ffc107;
+    font-size: 20.8px;
+}
