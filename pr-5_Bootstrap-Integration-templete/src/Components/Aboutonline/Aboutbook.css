@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/* font-family: "Pacifico", cursive; */
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+/* font-family: "PT Sans Narrow", sans-serif; */
+
+.about-book {
+    padding: 100px 0;
+}
+
+.about-book-content {
+    text-align: center;
+}
+
+.about-book-content .about-book-heading p {
+    font-size: 24px;
+    color: #fd9d3e;
+    font-family: "Pacifico", cursive !important;
+    padding-bottom: 10px;
+}
+
+.about-book-content .about-book-heading h2 {
+    font-size: 30px;
+    color: #1d1d1d;
+    font-family: "PT Sans Narrow", sans-serif !important;
+    line-height: 58px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.about-book-des p {
+    font-size: 14px;
+    font-family: "PT Sans Narrow", sans-serif !important;
+    color: #121619;
+    padding-top: 20px;
+}
+
+.online-call {
+    text-decoration: none;
+    background: #121619;
+    color: #fff;
+    border: 10px solid #fd9d3e;
+    display: inline-block;
+    font-size: 23px;
+    font-weight: 700;
+    padding: 15px 10px 15px 10px;
+    margin-top: 30px;
+    background-position: 10px;
+    background-repeat: no-repeat;
+    transition-duration: .6s;
+}
+
+.online-call:hover {
+    background: #fff;
+    color: #000;
+}
+
+.online-call img {
+    width: 30px;
+    margin-right: 15px;
+    filter: brightness(0) invert(1);
+    transition: 0.5s ease;
+}
+
+.online-call:hover img {
+    filter: brightness(0) invert(0);
+}
+
+.book-form h2 {
+    font-size: 30px;
+    color: #121619;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 30px;
+    margin-top: 0;
+    color: #999999;
+}
+
+.name,
+.email,
+.person,
+.date {
+    font-size: 14px;
+    color: #999999;
+    padding: 0px 25px;
+    height: 50px;
+    border: 1px solid #999999;
+    border-radius: 0;
+}
+
+.name:focus,
+.email:focus,
+.person:focus,
+.date:focus {
+    box-shadow: none;
+    border: 1px solid orange;
+}
+
+.booknow {
+    font-family: "PT Sans Narrow", sans-serif !important;
+    font-weight: 700;
+    background: #121619;
+    border: 1px solid #121619;
+    padding: 17px 41px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition-duration: .6s;
+}
+
+.booknow:hover {
+    background-color: transparent;
+    color: black !important;
+    border: 1px solid black;
+}
+
+@media (min-width: 768px) {
+    .about-book-content {
+        max-width: 400px;
+        text-align: left;
+    }
+    .about-book-content .about-book-heading{
+        margin-top: -120px;
+    }
+    .about-book-content .about-book-heading h2{
+        font-size: 60px;
+    }
+}
+@media (min-width: 992px) {
+    .online-call{
+        font-size: 30px;
+    }
+    .online-call img {
+        width: 46px;
+        height: 60px;
+    }
+    .about-book-content .about-book-heading{
+        margin-top: 0px;
+    }
+    .about-book-content .about-book-heading p{
+        font-size: 30px;
+    }
+}

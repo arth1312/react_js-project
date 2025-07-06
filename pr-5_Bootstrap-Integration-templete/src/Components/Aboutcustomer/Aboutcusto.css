@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/* font-family: "Pacifico", cursive; */
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+/* font-family: "PT Sans Narrow", sans-serif; */
+
+.about-custo{
+    padding: 100px 0;
+    background: #121619;
+    position: absolute;
+    z-index: -1;
+}
+.about-custo::before{
+    content: "";
+    background: url(../../assets/images/chef-bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .20;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.customer-top-bg{
+    position: absolute;
+    top: -55px;
+    left: 0;
+}
+.customer-top-bg img{
+    width: 100%;
+}
+.customer-bottom-bg{
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+}
+.customer-bottom-bg img{
+    width: 100%;
+}
+.customer-heading p{
+    font-size: 30px;
+    color: #fd9d3e;
+    font-family: "Pacifico", cursive!important;
+    padding-bottom: 10px;
+}
+.customer-heading h2{
+    font-family: "PT Sans Narrow", sans-serif!important;
+    font-size: 70px;
+    line-height: 58px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+.swiper {
+    width: 100%;
+    height: 290px;
+}
+.swiper-slide {
+    font-size: 18px;
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.square {
+    position: relative;
+}
+.square::before {
+    content: "";
+    width: 29px;
+    height: 29px;
+    background-color: white;
+    transform: rotateZ(45deg);
+    position: absolute;
+    top: 50px;
+    left: -42px;
+    z-index: 99;
+    display: inline-block;
+}
+.testimonial-slide {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+.testimonial-image-box {
+    padding: 30px 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+}
+.testimonial-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid orange;
+    object-fit: cover;
+}
+.testimonial-name {
+    margin-top: 12px;
+    color: orange;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.testimonial-content {
+    background-color: white;
+    padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.testimonial-text {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+.testimonial-footer {
+    margin-top: 16px;
+    color: orange;
+    font-weight: bold;
+    font-size: 14px;
+}
+.testimonial-footer span {
+    color: #999;
+    font-weight: normal;
+}

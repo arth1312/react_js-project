@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+
+.aboutdiscover{
+    background-color: #f4f4f4;
+    padding: 100px 0;
+}
+.aboutdiscover-title p{
+    font-size: 30px;
+    font-family: "Pacifico", cursive!important;
+    color: orange;
+    padding-bottom: 10px;
+}
+.aboutdiscover-title h2{
+    font-size: 70px;
+    color: #1d1d1d;
+    line-height: 58px;
+    font-weight: 800;
+    font-family: "PT Sans Narrow", sans-serif!important;
+}
+.aboutdiscover-content{
+    padding-top: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.aboutdiscover-content p{
+    font-family: "PT Sans Narrow", sans-serif!important;
+    font-size: 16px;
+    padding-bottom: 20px;
+    padding-top: 0;
+    color: #121619;
+}
+.aboutdiscover-img img{
+    margin-top: 25px;
+    margin-bottom: 0;
+}

@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+
+.about-rest{
+    padding: 100px 0;
+}
+.about-rest-content{
+    text-align: center;
+}
+.about-rest-title p{
+    font-size: 30px;
+    font-family: 'Pacifico', cursive!important;
+    color: orange;
+    padding-bottom: 10px;
+}
+
+.about-rest-title h2{
+    font-size: 70px;
+    color: #1d1d1d;
+    font-family: 'PT Sans Narrow', sans-serif!important;
+    line-height: 70px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+.about-rest-des{
+    padding-top: 25px;
+    padding-bottom: 0;
+}
+.about-rest-des p{
+    font-size: 14px;
+    color: #121619;
+    padding-bottom: 20px;
+    font-family: 'PT Sans Narrow', sans-serif!important;
+}
+
+@media (min-width: 768px) {
+    .about-rest-img img{
+        width: 100%;
+    }
+}
+@media (min-width: 992px) {
+    .about-rest-content{
+        margin-left: 20px;
+        text-align: left;
+    }
+}

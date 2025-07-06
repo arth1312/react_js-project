@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/* font-family: "Pacifico", cursive */
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+/* font-family: "PT Sans Narrow", sans-serif; */
+
+
+.about-expi{
+    padding: 100px 0;
+}
+.about-expi-img img{
+    max-width: 100%;
+}
+.about-expi-img::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0, .7);
+    opacity: 0;
+    transition: all 400ms ease;
+}
+.about-expi-img:hover::before{
+    opacity: 1;
+}
+.play-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.play-icon span{
+    border: 8px solid #fd9d3e;
+    border-radius: 100%;
+    width: 90px;
+    height: 90px;
+    line-height: 75px;
+    text-align: center;
+    font-size: 40px;
+    color: #fd9d3e;
+    display: inline-block;
+    transition: all 400ms ease;
+}
+.play-icon .play{
+    font-size: 55px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+.about-expi-content{
+    padding: 0 0 0 20px;
+    text-align: center;
+}
+.about-expi-title p{
+    font-size: 30px;
+    font-family: 'Pacifico', cursive!important;
+    color: orange;
+    padding-bottom: 10px;
+}
+.about-expi-title h2{
+    font-size: 70px;
+    color: #1d1d1d;
+    font-family: 'PT Sans Narrow', sans-serif!important;
+    line-height: 70px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+.about-expi-des p{
+    font-size: 14px;
+    color: #121619;
+    padding-bottom: 20px;
+    font-family: 'PT Sans Narrow', sans-serif!important;
+}
+
+@media (min-width: 992px) {
+    .about-expi-content{
+        text-align: left;
+    }
+}
