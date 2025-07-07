@@ -17,15 +17,17 @@
 
 .nav-link {
   transition: background-color 0.3s ease;
-
+  color: white !important;
+  font-size: 16px;
 }
+
 .nav-link:hover {
-    color: #eb974b;
+  color: #eb974b !important;
 }
 
 .header-icon {
   font-size: 18px;
-  color: rgb(209, 132, 55); 
+  color: rgb(209, 132, 55);
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -36,7 +38,7 @@
 }
 
 .index-header {
-  font-family: "PT Sans Narrow", sans-serif!important;
+  font-family: "PT Sans Narrow", sans-serif !important;
   font-size: 16px;
 }
 
@@ -45,7 +47,7 @@
   border-radius: 0;
   border-top: 3px solid #e67700;
   padding: 10px 0;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   min-width: 200px;
 }
 
@@ -53,7 +55,7 @@
   font-size: 14px;
   color: #000000;
   padding: 8px 20px;
-  transition: transition 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .dropdown-menu .dropdown-item:hover {
@@ -62,27 +64,68 @@
 
 .nav-link-custom .dropdown-toggle {
   color: white !important;
+  text-decoration: none;
 }
 
 .nav-link-custom .dropdown-toggle:hover {
   color: #e4964d !important;
 }
 
-.nav-link-custom .dropdown-toggle {
-  text-decoration: none;
-}
-
 .nav-link-custom .dropdown-toggle::after {
   display: none !important;
 }
 
-.index-header .nav-link {
-  color: white !important;
-  font-size: 16px;
-  transition: color 0.3s ease;
+.navbar-toggler-custom {
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: none;
 }
 
-.index-header .nav-link:hover {
-  color: #e4964d !important;
-  text-decoration: none;
+@media (max-width: 768px) {
+  .contact-text {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #121619;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .navbar {
+    /* position: relative; */
+ 
+  }
+  /* .navbar-toggler-custom {
+    order: 2;
+    position: absolute;
+    top: 10px;
+    right: 23px;
+  } */
+
+  .index-header .nav-link {
+    color: white !important;
+    font-size: 18px;
+    padding: 10px 0;
+    display: block;
+    text-align: left;
+  }
+
+  .nav-link-custom .dropdown-toggle {
+    color: white !important;
+  }
+
+  .nav-link-custom .dropdown-toggle::after {
+    display: inline-block !important;
+  }
+
+  .icon-box {
+    gap: 15px;
+  }
+
+  .order-button {
+    display: none !important;
+  }
 }

@@ -1,105 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-/* font-family: "Pacifico", cursive; */
-
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
-/* font-family: "PT Sans Narrow", sans-serif; */
-
-.about-custo{
+.about-custo {
     padding: 100px 0;
     background: #121619;
-    position: absolute;
-    z-index: -1;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
-.about-custo::before{
+.about-custo::before {
     content: "";
     background: url(../../assets/images/chef-bg.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: .20;
+    opacity: .2;
     position: absolute;
-    z-index: -1;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: -1;
 }
-.customer-top-bg{
+.customer-top-bg,
+.customer-bottom-bg {
     position: absolute;
-    top: -55px;
     left: 0;
-}
-.customer-top-bg img{
     width: 100%;
+    z-index: 0;
 }
-.customer-bottom-bg{
-    position: absolute;
-    bottom: -7px;
-    left: 0;
+.customer-top-bg {
+    top: -75px;
 }
-.customer-bottom-bg img{
-    width: 100%;
+.customer-bottom-bg {
+    bottom: -9px;
 }
-.customer-heading p{
+.customer-heading p {
     font-size: 30px;
     color: #fd9d3e;
-    font-family: "Pacifico", cursive!important;
+    font-family: "Pacifico", cursive;
     padding-bottom: 10px;
 }
-.customer-heading h2{
-    font-family: "PT Sans Narrow", sans-serif!important;
+.customer-heading h2 {
+    font-family: "PT Sans Narrow", sans-serif;
     font-size: 70px;
     line-height: 58px;
     letter-spacing: 2px;
     font-weight: 700;
+    color: #fff;
 }
-.swiper {
+
+.mySwiper {
     width: 100%;
-    height: 290px;
-}
-.swiper-slide {
-    font-size: 18px;
-}
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.testimonial-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.square {
+    height: 300px;
     position: relative;
 }
-.square::before {
-    content: "";
-    width: 29px;
-    height: 29px;
-    background-color: white;
-    transform: rotateZ(45deg);
-    position: absolute;
-    top: 50px;
-    left: -42px;
-    z-index: 99;
-    display: inline-block;
-}
+
 .testimonial-slide {
     display: flex;
-    flex-direction: row;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
+
 .testimonial-image-box {
-    padding: 30px 35px;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-width: 180px;
 }
+
 .testimonial-image {
     width: 100px;
     height: 100px;
@@ -117,12 +84,21 @@
     letter-spacing: 1px;
 }
 .testimonial-content {
-    background-color: white;
     padding: 28px;
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    position: relative;
+    background: white;
+}
+.square::before {
+    content: "";
+    width: 29px;
+    height: 29px;
+    background-color: white;
+    transform: rotateZ(45deg);
+    position: absolute;
+    top: 50px;
+    left: -15px;
+    z-index: 1;
 }
 .testimonial-text {
     font-style: italic;
@@ -140,4 +116,19 @@
 .testimonial-footer span {
     color: #999;
     font-weight: normal;
+}
+
+.swiper-pagination {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.swiper-pagination-bullet {
+    background: orange;
+    opacity: 0.5;
+}
+.swiper-pagination-bullet-active {
+    background: #fff;
+    opacity: 1;
 }
