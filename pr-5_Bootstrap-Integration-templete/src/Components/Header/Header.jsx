@@ -15,9 +15,23 @@ const Header = () => {
                     <img src={logo} alt="header-logo" width={150} />
                 </Navbar.Brand>
 
-                <Navbar.Toggle aria-controls="navbarResponsive" className="navbar-toggler-custom " />
+                {/* <Navbar.Toggle aria-controls="navbarResponsive" className="navbar-toggler-custom " /> */}
 
-   
+                <div className="d-flex align-items-center gap-3">
+                    <Navbar.Toggle aria-controls="navbarResponsive" className="navbar-toggler-custom ms-2 order-1" />
+                    <div className="d-flex align-items-center gap-3 icon-box">
+                        <div className="d-flex align-items-center text-white phone-icon-hover contact-info">
+                            <IoCallOutline className="me-2 header-icon" />
+                            <span className="contact-text">+91 123 456 789</span>
+                        </div>
+                        <div className="d-flex align-items-center text-white bag-icon-hover contact-info">
+                            <HiOutlineShoppingBag className="me-2 header-icon" />
+                            <span className="contact-text">0 items - <span className="ms-1">$0.00</span></span>
+                        </div>
+                        <button className="order-button d-none d-md-inline">ORDER ONLINE</button>
+                    </div>
+                </div>
+
 
                 <Navbar.Collapse id="navbarResponsive">
                     <Nav className="index-header ms-auto text-center">
@@ -47,17 +61,7 @@ const Header = () => {
                     </Nav>
                 </Navbar.Collapse>
 
-                <div className="d-flex align-items-center gap-3 icon-box">
-                    <div className="d-flex align-items-center text-white phone-icon-hover contact-info">
-                        <IoCallOutline className="me-2 header-icon" />
-                        <span className="contact-text">+91 123 456 789</span>
-                    </div>
-                    <div className="d-flex align-items-center text-white bag-icon-hover contact-info">
-                        <HiOutlineShoppingBag className="me-2 header-icon" />
-                        <span className="contact-text">0 items - <span className="ms-1">$0.00</span></span>
-                    </div>
-                    <button className="order-button d-none d-md-inline">ORDER ONLINE</button>
-                </div>
+
             </Container>
         </Navbar>
     );
