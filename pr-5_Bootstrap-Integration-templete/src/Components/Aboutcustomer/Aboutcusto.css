@@ -126,9 +126,11 @@
 }
 .swiper-pagination-bullet {
     background: orange;
-    opacity: 0.5;
+    opacity: 1;
 }
 .swiper-pagination-bullet-active {
     background: #fff;
+    border: 2px solid orange;
+    border-radius: 50%;
     opacity: 1;
 }
