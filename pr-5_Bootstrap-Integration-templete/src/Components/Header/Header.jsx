@@ -10,31 +10,15 @@ import './Header.css';
 const Header = () => {
     return (
         <Navbar expand="lg" className="sticky-top main-navbar" style={{ backgroundColor: '#121619' }}>
-            <Container fluid className=" navbar d-flex justify-content-between align-items-center px-4" style={{ maxWidth: '1200px' }}>
-                <Navbar.Brand href="#">
+            <Container fluid className="px-4" style={{ maxWidth: '1200px' }}>
+                <Navbar.Brand href="#" className="me-lg-5">
                     <img src={logo} alt="header-logo" width={150} />
                 </Navbar.Brand>
 
-                {/* <Navbar.Toggle aria-controls="navbarResponsive" className="navbar-toggler-custom " /> */}
-
-                <div className="d-flex align-items-center gap-3">
-                    <Navbar.Toggle aria-controls="navbarResponsive" className="navbar-toggler-custom ms-2 order-1" />
-                    <div className="d-flex align-items-center gap-3 icon-box">
-                        <div className="d-flex align-items-center text-white phone-icon-hover contact-info">
-                            <IoCallOutline className="me-2 header-icon" />
-                            <span className="contact-text">+91 123 456 789</span>
-                        </div>
-                        <div className="d-flex align-items-center text-white bag-icon-hover contact-info">
-                            <HiOutlineShoppingBag className="me-2 header-icon" />
-                            <span className="contact-text">0 items - <span className="ms-1">$0.00</span></span>
-                        </div>
-                        <button className="order-button d-none d-md-inline">ORDER ONLINE</button>
-                    </div>
-                </div>
-
+                <Navbar.Toggle aria-controls="navbarResponsive" className="navbar-toggler-custom d-lg-none" />
 
                 <Navbar.Collapse id="navbarResponsive">
-                    <Nav className="index-header ms-auto text-center">
+                    <Nav className="index-header mx-lg-auto">
                         <Nav.Link href="#home" className="nav-link">Home</Nav.Link>
 
                         <NavDropdown title="Menu" id="menu-dropdown" className="nav-link-custom dropdown-custom">
@@ -59,9 +43,21 @@ const Header = () => {
                             <NavDropdown.Item href="#404">404</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
+
+                    <div className="d-none d-lg-flex align-items-center ms-lg-auto">
+                        <div className="d-flex align-items-center gap-3 icon-box">
+                            <div className="d-flex align-items-center text-white phone-icon-hover contact-info">
+                                <IoCallOutline className="me-2 header-icon" />
+                                <span>+91 123 456 789</span>
+                            </div>
+                            <div className="d-flex align-items-center text-white bag-icon-hover contact-info">
+                                <HiOutlineShoppingBag className="me-2 header-icon" />
+                                <span>0 items - <span className="ms-1">$0.00</span></span>
+                            </div>
+                            <button className="order-button">ORDER ONLINE</button>
+                        </div>
+                    </div>
                 </Navbar.Collapse>
-
-
             </Container>
         </Navbar>
     );
