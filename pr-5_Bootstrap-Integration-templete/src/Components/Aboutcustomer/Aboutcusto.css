@@ -40,7 +40,7 @@
 }
 .customer-heading h2 {
     font-family: "PT Sans Narrow", sans-serif;
-    font-size: 70px;
+    font-size: 40px;
     line-height: 58px;
     letter-spacing: 2px;
     font-weight: 700;
@@ -133,4 +133,17 @@
     border: 2px solid orange;
     border-radius: 50%;
     opacity: 1;
+}
+
+
+@media (min-width: 768px) {
+    .customer-heading h2{
+        font-size: 60px;
+    }
+}
+
+@media (min-width: 992px) {
+    .customer-heading h2{
+        font-size: 70px;
+    }
 }
