@@ -1,0 +1,178 @@
+.form-container {
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.form-label {
+    text-align: left !important;
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.patient-btn {
+    background-color: black;
+    border: none;
+    padding: 0.5rem 2rem;
+    font-weight: 500;
+    transition-duration: .5s;
+}
+
+.patient-btn:hover{
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+}
+
+.invalid-feedback {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+    text-align: left;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid,
+.form-check-input.is-invalid {
+    border-color: #dc3545;
+}
+
+.form-check {
+    margin-right: 1rem;
+    text-align: left;
+}
+
+.patient-records-container {
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.patient-records-table {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.table-header {
+    color: white;
+}
+
+.table-header th {
+    background-color: #000000;
+    color: #fff;
+    padding: 12px 8px;
+    text-align: center!important;
+    vertical-align: middle;
+}
+
+.patient-row td {
+    padding: 10px 8px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.id-column,
+.id-cell {
+    width: 60px;
+}
+
+.name-column,
+.name-cell {
+    min-width: 150px;
+    text-align: left !important;
+}
+
+.age-column,
+.age-cell {
+    width: 70px;
+}
+
+.gender-column,
+.gender-cell {
+    width: 90px;
+}
+
+.date-column,
+.date-cell {
+    width: 110px;
+}
+
+.contact-column,
+.contact-cell {
+    width: 120px;
+}
+
+.ward-column,
+.ward-cell {
+    min-width: 130px;
+}
+
+.doctor-column,
+.doctor-cell {
+    min-width: 200px;
+    text-align: left !important;
+}
+
+.actions-column,
+.actions-cell {
+    width: 180px;
+}
+
+.edit-btn {
+    background-color: #f39c12;
+    border-color: #e67e22;
+    font-weight: 500;
+}
+
+.edit-btn:hover {
+    background-color: #e67e22;
+    border-color: #d35400;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    border-color: #c0392b;
+    font-weight: 500;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+    border-color: #a5281b;
+}
+
+.patient-row:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.2s ease;
+}
+
+@media (max-width: 768px) {
+    .patient-records-table {
+        font-size: 13px;
+    }
+
+    .table-header th {
+        padding: 8px 4px;
+    }
+
+    .patient-row td {
+        padding: 8px 4px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 3px 6px;
+        font-size: 12px;
+    }
+}
