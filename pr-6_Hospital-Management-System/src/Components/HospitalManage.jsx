@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Button, Row, Col, Container, Table } from "react-bootstrap";
+import generateUniqueId from 'generate-unique-id';
 import "./HospitalManage.css";
+
+const getStorageData = () => {
+    const data = localStorage.getItem('patients');
+    return data ? JSON.parse(data) : [];
+}
 
 const Patient_Form = () => {
     const initialState = {
+        id: "",
         name: "",
         age: "",
         gender: "",
@@ -11,104 +18,146 @@ const Patient_Form = () => {
         contact: "",
         address: "",
         wardNum: "",
-        doctor: "",
+        doctor: ""
     };
 
     const [inputForm, setInputForm] = useState(initialState);
-    const [errors, setErrors] = useState({});
+    const [patientData, setPatientData] = useState(getStorageData());
     const [isEdit, setIsEdit] = useState(false);
-    const [patients, setPatients] = useState(() => {
-        const data = localStorage.getItem('patients');
-        return data ? JSON.parse(data) : [];
+    const [errors, setErrors] = useState({
+        name: "",
+        age: "",
+        gender: "",
+        date: "",
+        contact: "",
+        address: "",
+        wardNum: "",
+        doctor: ""
     });
 
     const setStorageData = (data) => {
         localStorage.setItem('patients', JSON.stringify(data));
-        setPatients(data);
+        setPatientData(data);
     };
 
-    const handleInput = (e) => {
+    const handleChanged = (e) => {
         const { name, value } = e.target;
-        setInputForm({ ...inputForm, [name]: value });
+        setInputForm(prev => ({
+            ...prev,
+            [name]: value
+        }));
     };
 
     const validate = () => {
-        const newErrors = {};
+        const newErrors = { ...errors };
+        let isValid = true;
 
         if (!inputForm.name.trim()) {
             newErrors.name = "Name is required.";
+            isValid = false;
+        } else {
+            newErrors.name = "";
         }
 
         if (!inputForm.age) {
             newErrors.age = "Age is required.";
+            isValid = false;
         } else if (isNaN(inputForm.age)) {
             newErrors.age = "Valid age is required.";
+            isValid = false;
+        } else {
+            newErrors.age = "";
         }
 
         if (!inputForm.gender) {
             newErrors.gender = "Gender is required.";
+            isValid = false;
+        } else {
+            newErrors.gender = "";
         }
 
         if (!inputForm.date) {
             newErrors.date = "Admit date is required.";
+            isValid = false;
+        } else {
+            newErrors.date = "";
         }
 
         if (!inputForm.contact) {
             newErrors.contact = "Contact number is required.";
+            isValid = false;
         } else if (!/^\d{10}$/.test(inputForm.contact)) {
             newErrors.contact = "Valid 10-digit contact number is required.";
+            isValid = false;
+        } else {
+            newErrors.contact = "";
         }
 
         if (!inputForm.address.trim()) {
             newErrors.address = "Address is required.";
+            isValid = false;
+        } else {
+            newErrors.address = "";
         }
 
         if (!inputForm.wardNum) {
             newErrors.wardNum = "Please select a ward.";
+            isValid = false;
+        } else {
+            newErrors.wardNum = "";
         }
 
         if (!inputForm.doctor) {
             newErrors.doctor = "Please assign a doctor.";
+            isValid = false;
+        } else {
+            newErrors.doctor = "";
         }
 
-        return newErrors;
+        setErrors(newErrors);
+        return isValid;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const validationErrors = validate();
+        const isValid = validate();
 
-        if (Object.keys(validationErrors).length > 0) {
-            setErrors(validationErrors);
-            return;
-        }
+        if (!isValid) return;
 
         if (isEdit) {
-            const updatedPatients = patients.map(patient =>
+            const updatedPatients = patientData.map(patient =>
                 patient.id === inputForm.id ? inputForm : patient
             );
             setStorageData(updatedPatients);
-            setInputForm(initialState);
-            setIsEdit(false);
         } else {
-            const id = Math.floor(Math.random() * 10000);
-            const updatedPatients = [...patients, { ...inputForm, id }];
-            setStorageData(updatedPatients);
-            setInputForm(initialState);
+            const id = generateUniqueId({
+                length: 6,
+                useLetters: false
+            });
+            const newPatient = { ...inputForm, id };
+            setStorageData([...patientData, newPatient]);
         }
-        setErrors({});
+
+        setInputForm(initialState);
+        setIsEdit(false);
     };
 
     const handleEdit = (id) => {
-        const singleRec = patients.find(patient => patient.id === id);
-        setInputForm(singleRec);
-        setIsEdit(true);
+        const singleRec = patientData.find(patient => patient.id === id);
+        if (singleRec) {
+            setInputForm(singleRec);
+            setIsEdit(true);
+        }
     };
 
     const handleDelete = (id) => {
-        const updatedPatients = patients.filter(patient => patient.id !== id);
+        const updatedPatients = patientData.filter(patient => patient.id !== id);
         setStorageData(updatedPatients);
     };
+
+    useEffect(() => {
+        localStorage.setItem("patients", JSON.stringify(patientData));
+    }, [patientData]);
 
     return (
         <>
@@ -124,7 +173,7 @@ const Patient_Form = () => {
                                     type="text"
                                     name="name"
                                     value={inputForm.name}
-                                    onChange={handleInput}
+                                    onChange={handleChanged}
                                     isInvalid={!!errors.name}
                                 />
                                 <Form.Control.Feedback type="invalid">
@@ -139,7 +188,7 @@ const Patient_Form = () => {
                                     type="text"
                                     name="age"
                                     value={inputForm.age}
-                                    onChange={handleInput}
+                                    onChange={handleChanged}
                                     isInvalid={!!errors.age}
                                 />
                                 <Form.Control.Feedback type="invalid">
@@ -157,7 +206,7 @@ const Patient_Form = () => {
                                     type="date"
                                     name="date"
                                     value={inputForm.date}
-                                    onChange={handleInput}
+                                    onChange={handleChanged}
                                     isInvalid={!!errors.date}
                                 />
                                 <Form.Control.Feedback type="invalid">
@@ -172,7 +221,7 @@ const Patient_Form = () => {
                                     type="tel"
                                     name="contact"
                                     value={inputForm.contact}
-                                    onChange={handleInput}
+                                    onChange={handleChanged}
                                     isInvalid={!!errors.contact}
                                 />
                                 <Form.Control.Feedback type="invalid">
@@ -187,19 +236,19 @@ const Patient_Form = () => {
                         <Form.Select
                             name="wardNum"
                             value={inputForm.wardNum}
-                            onChange={handleInput}
+                            onChange={handleChanged}
                             isInvalid={!!errors.wardNum}
                         >
                             <option value="">Select Ward</option>
-                            <option value="General Ward">General Ward</option>
-                            <option value="ICU">ICU</option>
-                            <option value="Maternity Ward">Maternity Ward</option>
-                            <option value="Pediatric Ward">Pediatric Ward</option>
-                            <option value="Surgical Ward">Surgical Ward</option>
-                            <option value="Dental Ward">Dental Ward</option>
-                            <option value="Orthopedic Ward">Orthopedic Ward</option>
-                            <option value="Cardiology Ward">Cardiology Ward</option>
-                            <option value="Emergency Ward">Emergency Ward</option>
+                            <option value="General Ward" selected={inputForm.wardNum == "General Ward"}>General Ward</option>
+                            <option value="ICU" selected={inputForm.wardNum == "ICU"}>ICU</option>
+                            <option value="Maternity Ward" selected={inputForm.wardNum == "Maternity Ward"}>Maternity Ward</option>
+                            <option value="Pediatric Ward" selected={inputForm.wardNum == "Pediatric Ward"}>Pediatric Ward</option>
+                            <option value="Surgical Ward" selected={inputForm.wardNum == "Surgical Ward"}>Surgical Ward</option>
+                            <option value="Dental Ward" selected={inputForm.wardNum == "Dental Ward"}>Dental Ward</option>
+                            <option value="Orthopedic Ward" selected={inputForm.wardNum == "Orthopedic Ward"}>Orthopedic Ward</option>
+                            <option value="Cardiology Ward" selected={inputForm.wardNum == "Cardiology Ward"}>Cardiology Ward</option>
+                            <option value="Emergency Ward" selected={inputForm.wardNum == "Emergency Ward"}>Emergency Ward</option>
                         </Form.Select>
                         <Form.Control.Feedback type="invalid">
                             {errors.wardNum}
@@ -211,20 +260,20 @@ const Patient_Form = () => {
                         <Form.Select
                             name="doctor"
                             value={inputForm.doctor}
-                            onChange={handleInput}
+                            onChange={handleChanged}
                             isInvalid={!!errors.doctor}
                         >
                             <option value="">Select Doctor</option>
-                            <option value="Dr. Naman Gupta (General Physician)">Dr. Naman Gupta (General Physician)</option>
-                            <option value="Dr. Rajiv Patel (Critical Care Specialist)">Dr. Rajiv Patel (Critical Care Specialist)</option>
-                            <option value="Dr. Rekha Gupta (Obstetrician/Gynecologist)">Dr. Rekha Gupta (Obstetrician/Gynecologist)</option>
-                            <option value="Dr. Milan Dhaduk (MD Madicen)">Dr. Milan Dhaduk (MD Madicen)</option>
-                            <option value="Dr. Vishnu Thakkar (Pediatrician)">Dr. Vishnu Thakkar (Pediatrician)</option>
-                            <option value="Dr. Farhan Shaikh (General Surgeon)">Dr. Farhan Shaikh (General Surgeon)</option>
-                            <option value="Dr. Vishal Shah (Dentist)">Dr. Vishal Shah (Dentist)</option>
-                            <option value="Dr. Kiran Desai (Orthopedic Surgeon)">Dr. Kiran Desai (Orthopedic Surgeon)</option>
-                            <option value="Dr. Anjali Mehta (Cardiologist)">Dr. Anjali Mehta (Cardiologist)</option>
-                            <option value="Dr. Suresh Patel (Emergency Specialist)">Dr. Suresh Patel (Emergency Specialist)</option>
+                            <option value="Dr. Naman Gupta (General Physician)" selected={inputForm.doctor == "Dr. Naman Gupta (General Physician)"}>Dr. Naman Gupta (General Physician)</option>
+                            <option value="Dr. Rajiv Patel (Critical Care Specialist)" selected={inputForm.doctor == "Dr. Rajiv Patel (Critical Care Specialist)"}>Dr. Rajiv Patel (Critical Care Specialist)</option>
+                            <option value="Dr. Rekha Gupta (Obstetrician/Gynecologist)" selected={inputForm.doctor == "Dr. Rekha Gupta (Obstetrician/Gynecologist)"}>Dr. Rekha Gupta (Obstetrician/Gynecologist)</option>
+                            <option value="Dr. Milan Dhaduk (MD Madicen)" selected={inputForm.doctor == "Dr. Milan Dhaduk (MD Madicen)"}>Dr. Milan Dhaduk (MD Madicen)</option>
+                            <option value="Dr. Vishnu Thakkar (Pediatrician)" selected={inputForm.doctor == "Dr. Vishnu Thakkar (Pediatrician)"}>Dr. Vishnu Thakkar (Pediatrician)</option>
+                            <option value="Dr. Farhan Shaikh (General Surgeon)" selected={inputForm.doctor == "Dr. Farhan Shaikh (General Surgeon)"}>Dr. Farhan Shaikh (General Surgeon)</option>
+                            <option value="Dr. Vishal Shah (Dentist)" selected={inputForm.doctor == "Dr. Vishal Shah (Dentist)"}>Dr. Vishal Shah (Dentist)</option>
+                            <option value="Dr. Kiran Desai (Orthopedic Surgeon)" selected={inputForm.doctor == "Dr. Kiran Desai (Orthopedic Surgeon)"}>Dr. Kiran Desai (Orthopedic Surgeon)</option>
+                            <option value="Dr. Anjali Mehta (Cardiologist)" selected={inputForm.doctor == "Dr. Anjali Mehta (Cardiologist)"}>Dr. Anjali Mehta (Cardiologist)</option>
+                            <option value="Dr. Suresh Patel (Emergency Specialist)" selected={inputForm.doctor == "Dr. Suresh Patel (Emergency Specialist)"}>Dr. Suresh Patel (Emergency Specialist)</option>
                         </Form.Select>
                         <Form.Control.Feedback type="invalid">
                             {errors.doctor}
@@ -238,7 +287,7 @@ const Patient_Form = () => {
                             rows={3}
                             name="address"
                             value={inputForm.address}
-                            onChange={handleInput}
+                            onChange={handleChanged}
                             isInvalid={!!errors.address}
                         />
                         <Form.Control.Feedback type="invalid">
@@ -256,7 +305,7 @@ const Patient_Form = () => {
                                 id="male-radio"
                                 value="Male"
                                 checked={inputForm.gender === "Male"}
-                                onChange={handleInput}
+                                onChange={handleChanged}
                                 isInvalid={!!errors.gender}
                             />
                             <Form.Check
@@ -266,7 +315,7 @@ const Patient_Form = () => {
                                 id="female-radio"
                                 value="Female"
                                 checked={inputForm.gender === "Female"}
-                                onChange={handleInput}
+                                onChange={handleChanged}
                                 isInvalid={!!errors.gender}
                             />
                             <Form.Check
@@ -276,7 +325,7 @@ const Patient_Form = () => {
                                 id="other-radio"
                                 value="Other"
                                 checked={inputForm.gender === "Other"}
-                                onChange={handleInput}
+                                onChange={handleChanged}
                                 isInvalid={!!errors.gender}
                             />
                         </div>
@@ -297,7 +346,7 @@ const Patient_Form = () => {
 
             <Container className="my-4">
                 <h2 className="mb-4">Patient Records</h2>
-                {patients.length > 0 && (
+                {patientData.length > 0 ? (
                     <div className="patient-records-container">
                         <Table striped bordered hover responsive className="patient-records-table">
                             <thead className="table-header">
@@ -313,7 +362,7 @@ const Patient_Form = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {patients.map((patient) => (
+                                {patientData.map((patient) => (
                                     <tr key={patient.id} className="patient-row">
                                         <td className="name-cell">{patient.name}</td>
                                         <td className="age-cell">{patient.age}</td>
@@ -345,7 +394,7 @@ const Patient_Form = () => {
                             </tbody>
                         </Table>
                     </div>
-                )}
+                ) : null}
             </Container>
         </>
     );
