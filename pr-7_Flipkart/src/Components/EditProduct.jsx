@@ -108,6 +108,11 @@ const EditProduct = () => {
                                 <option value="Fashion" selected={inputForm.category == "Fashion"}>Fashion</option>
                                 <option value="Mobiles" selected={inputForm.category == "Mobiles"}>Mobiles</option>
                                 <option value="Appliances" selected={inputForm.category == "Appliances"}>Appliances</option>
+                                <option value="Grocery" selected={inputForm.category == "Grocery"}>Grocery</option>
+                                <option value="Home & Furniture" selected={inputForm.category == "Home & Furniture"}>Home & Furniture</option>
+                                <option value="Beauty, Toys & More" selected={inputForm.category == "Beauty, Toys & More"}>Beauty, Toys & More</option>
+                                <option value="Petrol Two Wheelers" selected={inputForm.category == "Petrol Two Wheelers"}>Petrol Two Wheelers</option>
+                                <option value="Eletric Two Wheelers" selected={inputForm.category == "Eletric Two Wheelers"}>Eletric Two Wheelers</option>
                             </Form.Select>
                         </Col>
                     </Form.Group>
