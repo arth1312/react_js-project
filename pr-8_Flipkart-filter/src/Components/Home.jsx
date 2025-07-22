@@ -172,7 +172,7 @@ const Home = () => {
                             onClick={() => handlePageChange(currentPage + 1)}
                             disabled={currentPage === totalPages}
                         />
-                    </Pagination>
+                    </Pagination> 
                 </div>
             )}
         </>
