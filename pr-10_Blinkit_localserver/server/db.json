@@ -1,0 +1,108 @@
+{
+  "products": [
+    {
+      "id": "991643",
+      "title": "Amul Shakti",
+      "desc": "Healthy product",
+      "price": "30",
+      "category": "Dairy & Bread",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=120,h=120/app/assets/products/sliding_images/jpeg/5ee4441d-9109-48fa-9343-f5ce82b905a6.jpg?ts=1706182143"
+    },
+    {
+      "id": "017445",
+      "title": "Mango",
+      "desc": "Summer season fruit",
+      "price": "1200",
+      "category": "Fruits & Vegetables",
+      "image": "https://exoticflora.in/cdn/shop/products/1_5ac8a2cb-21a4-4a07-97dc-f3ad1ae36ea4.jpg?v=1499122165"
+    },
+    {
+      "id": "181848",
+      "title": "Thumbs Up",
+      "desc": "cold drink",
+      "price": "20",
+      "category": "Cold Drinks & Juices",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2023/3/UR/GE/RS/185952101/whatsapp-image-2023-03-11-at-1-48-21-pm-500x500.jpeg"
+    },
+    {
+      "id": "843810",
+      "title": "Potato Wafers",
+      "desc": "it is make for home",
+      "price": "47",
+      "category": "Snacks",
+      "image": "https://5.imimg.com/data5/IM/BC/MY-5141831/potato-wafers.jpg"
+    },
+    {
+      "id": "418441",
+      "title": "Maggi",
+      "desc": "instant make for this product",
+      "price": "100",
+      "category": "Breakfast & Instant Food",
+      "image": "https://m.media-amazon.com/images/I/51J7qLhFWoL._SL500_.jpg"
+    },
+    {
+      "id": "106178",
+      "title": "Dary milk bubbly",
+      "desc": "chocolate",
+      "price": "30",
+      "category": "Sweet Tooth",
+      "image": "https://m.media-amazon.com/images/I/41100DSTICL._UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "458885",
+      "title": "Bread",
+      "desc": "live make bread",
+      "price": "40",
+      "category": "Bakery & Biscuits",
+      "image": "https://assets.bonappetit.com/photos/5c62e4a3e81bbf522a9579ce/16:9/w_4000,h_2250,c_limit/milk-bread.jpg"
+    },
+    {
+      "id": "383991",
+      "title": "Tea leaves",
+      "desc": "royal tea leaves",
+      "price": "449",
+      "category": "Tea & Coffee",
+      "image": "https://www.shutterstock.com/image-photo/mumbai-maharashtra-india-may-12-600nw-2159950509.jpg"
+    },
+    {
+      "id": "650299",
+      "title": "Aashirvaad Atta",
+      "desc": "shudh chakki atta",
+      "price": "235",
+      "category": "Atta, Rice & Dal",
+      "image": "https://shoopy.b-cdn.net/340140/aashirvaad-atta-1702468645457_SKU-0836_0.jpg?width=600&format=webp"
+    },
+    {
+      "id": "029134",
+      "title": "FORTUNE Goldnut Groundnut Oil",
+      "desc": " Refined Groundnut Oil",
+      "price": "190",
+      "category": "Masala & Oil",
+      "image": "https://m.media-amazon.com/images/I/61WDHwob1KL.jpg"
+    },
+    {
+      "id": "178242",
+      "title": "Coffee paper cup",
+      "desc": "one time use",
+      "price": "25",
+      "category": "Home & Office",
+      "image": "https://atlas-content-cdn.pixelsquid.com/stock-images/white-paper-coffee-cup-with-holder-d78P7M9-600.jpg"
+    },
+    {
+      "id": "609042",
+      "title": "Vim liquid",
+      "desc": "dish clean ",
+      "price": "58",
+      "category": "Cleaning Essentials",
+      "image": "https://driftbasket.com/wp-content/uploads/2018/10/Vim-Dishwashing-Liquid-Gel-Lemon-500ml-k.jpg"
+    },
+    {
+      "id": "905861",
+      "title": "prdigree",
+      "desc": "pet food",
+      "price": "230",
+      "category": "Pet Care",
+      "image": "https://5.imimg.com/data5/DD/KO/MY-47770095/pet-food-surat-500x500.jpg"
+    }
+  ]
+}
