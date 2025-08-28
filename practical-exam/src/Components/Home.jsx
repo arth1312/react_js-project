@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { deleteMovieAsync,  getAllMovieAsync, } from "../Services/Actions/movieAction";
+import { deleteMovieAsync, getAllMovieAsync, } from "../Services/Actions/movieAction";
 import { Badge, Button, Card, Modal, Pagination, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import './Home.css';
@@ -8,6 +8,7 @@ import './Home.css';
 const MovieHome = () => {
     const dispatch = useDispatch();
     const { movies, isLoading } = useSelector((state) => state.movieReducer);
+    const { user } = useSelector(state => state.userReducer);
     const navigate = useNavigate();
     const [search, setSearch] = useState("");
     const [showModal, setShowModal] = useState(false);
@@ -118,8 +119,6 @@ const MovieHome = () => {
                                 onChange={(e) => setSortData(e.target.value)}
                             >
                                 <option value="">Sort By</option>
-                                <option value="price,asc">Price: Low to High</option>
-                                <option value="price,desc">Price: High to Low</option>
                                 <option value="title,asc">Name: A to Z</option>
                                 <option value="title,desc">Name: Z to A</option>
                             </select>
@@ -157,13 +156,15 @@ const MovieHome = () => {
                                         >
                                             Edit
                                         </Button>
-                                        <Button
-                                            onClick={() => handleDelete(product.id)}
-                                            variant="danger"
-                                            className="delete-btn"
-                                        >
-                                            Delete
-                                        </Button>
+                                        {user && (
+                                            <Button
+                                                onClick={() => handleDelete(product.id)}
+                                                variant="danger"
+                                                className="delete-btn"
+                                            >
+                                                Delete
+                                            </Button>
+                                        )}
                                         <Button
                                             className="btn-skyblue fs-5"
                                             onClick={() => handleView(product)}

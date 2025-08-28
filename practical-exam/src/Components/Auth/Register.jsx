@@ -1,27 +1,21 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { MdOutlinePassword } from "react-icons/md";
 import "./Register.css";
+import { registerAsync } from "../../Services/Actions/userAction";
 
 const Register = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    // const { error, isCreated } = useSelector((state) => state.userReducer);
+    const { isCreated } = useSelector((state) => state.userReducer);
 
-    const intialState = {
-        email: "",
-        password: "",
-        cpass: "",
-    };
+    const intialState = { email: "", password: "", cpass: "" };
     const [inputForm, setInputForm] = useState(intialState);
 
     const handleChanged = (e) => {
         const { name, value } = e.target;
-        setInputForm({
-            ...inputForm,
-            [name]: value,
-        });
+        setInputForm({ ...inputForm, [name]: value });
     };
 
     const handleSubmit = (e) => {
@@ -30,31 +24,31 @@ const Register = () => {
             alert("Password and Confirm Password must match!");
             return;
         }
-        dispatch(registerAsync(inputForm));
+        dispatch(registerAsync({ email: inputForm.email, password: inputForm.password }));
     };
 
-    // useEffect(() => {
-    //     if (isCreated) {
-    //         navigate("/login");
-    //     }
-    // }, [isCreated]);
+    useEffect(() => {
+        if (isCreated) {
+            navigate("/login");
+        }
+    }, [isCreated]);
 
     return (
         <>
-            <div className="blinkit-login-container">
-                <div className="blinkit-login-card">
-                    <div className="blinkit-login-header">
-                        <div className="blinkit-logo-container">
+            <div className="movie-login-container">
+                <div className="movie-login-card">
+                    <div className="movie-login-header">
+                        <div className="movie-logo-container">
                         </div>
                     </div>
-                    <h2 className="blinkit-login-title">Create Account</h2>
+                    <h2 className="movie-login-title">Create Account</h2>
 
                     <form onSubmit={handleSubmit}>
-                        <div className="blinkit-input-group">
-                            <div className="blinkit-country-code">@</div>
+                        <div className="movie-input-group">
+                            <div className="movie-country-code">@</div>
                             <input
                                 type="text"
-                                className="blinkit-mobile-input"
+                                className="movie-mobile-input"
                                 placeholder="Enter Email"
                                 name="email"
                                 value={inputForm.email}
@@ -62,13 +56,13 @@ const Register = () => {
                             />
                         </div>
 
-                        <div className="blinkit-input-group">
-                            <div className="blinkit-country-code">
+                        <div className="movie-input-group">
+                            <div className="movie-country-code">
                                 <MdOutlinePassword />
                             </div>
                             <input
                                 type="password"
-                                className="blinkit-mobile-input"
+                                className="movie-mobile-input"
                                 placeholder="Enter Password"
                                 name="password"
                                 value={inputForm.password}
@@ -76,13 +70,13 @@ const Register = () => {
                             />
                         </div>
 
-                        <div className="blinkit-input-group">
-                            <div className="blinkit-country-code">
+                        <div className="movie-input-group">
+                            <div className="movie-country-code">
                                 <MdOutlinePassword />
                             </div>
                             <input
                                 type="password"
-                                className="blinkit-mobile-input"
+                                className="movie-mobile-input"
                                 placeholder="Confirm Password"
                                 name="cpass"
                                 value={inputForm.cpass}
@@ -90,13 +84,13 @@ const Register = () => {
                             />
                         </div>
 
-                        <button className="blinkit-continue-btn" type="submit">
+                        <button className="movie-continue-btn" type="submit">
                             Register
                         </button>
                     </form>
 
 
-                    <p className="blinkit-terms-text">
+                    <p className="movie-terms-text">
                         Already have an Account?{" "}
                         <Link to={"/login"}>Login</Link>
                     </p>

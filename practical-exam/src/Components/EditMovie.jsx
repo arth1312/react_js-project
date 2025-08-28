@@ -11,6 +11,7 @@ const EditMovie = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { movie, isUpdated } = useSelector((state) => state.movieReducer);
+    const { user } = useSelector(state => state.userReducer);
 
     const [inputForm, setInputForm] = useState({
         id: "",
@@ -33,6 +34,7 @@ const EditMovie = () => {
     const handleFileUpload = async (e) => {
         const file = e.target.files[0];
         if (!file) return;
+
         try {
             const uploadedUrl = await uploadImage(file);
             if (uploadedUrl) {
@@ -48,9 +50,14 @@ const EditMovie = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateMovieAsync(inputForm));
-    };
 
+        const updatedMovie = {
+            ...inputForm,
+            image: inputForm.image || movie.image,
+        };
+
+        dispatch(updateMovieAsync(updatedMovie));
+    };
     useEffect(() => {
         if (isUpdated) {
             navigate("/");
@@ -69,7 +76,11 @@ const EditMovie = () => {
         }
     }, [id]);
 
-
+    useEffect(() => {
+        if (!user) {
+            navigate("/login")
+        }
+    }, [user]);
 
     return (
         <Container className="edit-movie-container">
@@ -153,6 +164,7 @@ const EditMovie = () => {
                         >
                             <option value="">Select Category</option>
                             <option value="Bollywood" selected={inputForm.category == "Bollywood"}>Bollywood</option>
+                            <option value="Gujarati" selected={inputForm.category == "Gujarati"}>Gujarati</option>
                             <option value="South Indian" selected={inputForm.category == "South Indian"}>South Indian</option>
                             <option value="Horror" selected={inputForm.category == "Horror"}>Horror</option>
                             <option value="Action" selected={inputForm.category == "Action"}>Action</option>

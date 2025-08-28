@@ -1,43 +1,33 @@
-import './Login.css'
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { MdOutlinePassword } from "react-icons/md";
-import { FcGoogle } from "react-icons/fc";
+import "./Login.css";
+import { signInAsync } from "../../Services/Actions/userAction";
 
 const Login = () => {
-
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    // const { user, error } = useSelector(state => state.userReducer);
-    const intialState = {
-        email: "",
-        password: "",
-    };
-    const [inputForm, setInputForm] = useState(intialState);
+    const { user } = useSelector((state) => state.userReducer);
 
+    const intialState = { email: "", password: "" };
+    const [inputForm, setInputForm] = useState(intialState);
 
     const handleChanged = (e) => {
         const { name, value } = e.target;
-        setInputForm({
-            ...inputForm,
-            [name]: value,
-        });
+        setInputForm({ ...inputForm, [name]: value });
     };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(signInAsync(inputForm));
     };
 
-    const handleGoogleLogin = () => {
-        dispatch(signInWithGoogleAsync());
-    }
-
-    // useEffect(() => {
-    //     if (user) {
-    //         navigate("/")
-    //     }
-    // }, [user]);
+    useEffect(() => {
+        if (user) {
+            navigate("/");
+        }
+    }, [user]);
 
     return (
         <>
@@ -54,18 +44,18 @@ const Login = () => {
                             <div className="movie-country-code">@</div>
                             <input
                                 type="tel"
-                                className="blinkit-mobile-input"
+                                className="movie-mobile-input"
                                 placeholder="Enter Email"
                                 name="email"
                                 value={inputForm.email}
                                 onChange={handleChanged}
                             />
                         </div>
-                        <div className="blinkit-input-group">
-                            <div className="blinkit-country-code"><MdOutlinePassword /></div>
+                        <div className="movie-input-group">
+                            <div className="movie-country-code"><MdOutlinePassword /></div>
                             <input
                                 type="password"
-                                className="blinkit-mobile-input"
+                                className="movie-mobile-input"
                                 placeholder="Enter password"
                                 name="password"
                                 value={inputForm.password}
@@ -73,12 +63,12 @@ const Login = () => {
                             />
                         </div>
 
-                        <button className="blinkit-continue-btn" type="submit">
+                        <button className="movie-continue-btn" type="submit">
                             Login
                         </button>
                     </form>
 
-                    <p className="blinkit-terms-text">
+                    <p className="movie-terms-text">
                         Create an Account ? <Link className="" to={"/register"}>Register</Link>
                     </p>
                 </div>

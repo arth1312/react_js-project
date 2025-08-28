@@ -1,4 +1,4 @@
-.blinkit-login-container {
+.movie-login-container {
     font-family: 'Inter', sans-serif;
     max-width: 400px;
     margin: 0 auto;
@@ -6,33 +6,33 @@
     color: #333;
 }
 
-.blinkit-login-header {
+.movie-login-header {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.blinkit-logo-container {
+.movie-logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
 }
 
-.blinkit-login-card {
+.movie-login-card {
     background: white;
     border-radius: 12px;
     padding: 25px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.blinkit-login-title {
+.movie-login-title {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 20px;
     text-align: center;
 }
 
-.blinkit-input-group {
+.movie-input-group {
     display: flex;
     align-items: center;
     border: 1px solid #ddd;
@@ -41,13 +41,13 @@
     margin-bottom: 20px;
 }
 
-.blinkit-country-code {
+.movie-country-code {
     padding: 12px 15px;
     background: #f5f5f5;
     font-weight: 500;
 }
 
-.blinkit-mobile-input {
+.movie-mobile-input {
     flex: 1;
     padding: 12px 15px;
     border: none;
@@ -55,10 +55,10 @@
     font-size: 15px;
 }
 
-.blinkit-continue-btn {
+.movie-continue-btn {
     width: 100%;
     padding: 12px;
-    background-color: #10B981;
+    background-color: #140094;
     color: white;
     border: none;
     border-radius: 8px;
@@ -69,11 +69,7 @@
     transition: background-color 0.2s;
 }
 
-.blinkit-continue-btn:hover {
-    background-color: #0E9F76;
-}
-
-.blinkit-or-divider {
+.movie-or-divider {
     display: flex;
     align-items: center;
     margin: 20px 0;
@@ -81,26 +77,26 @@
     font-size: 14px;
 }
 
-.blinkit-or-divider::before,
-.blinkit-or-divider::after {
+.movie-or-divider::before,
+.movie-or-divider::after {
     content: "";
     flex: 1;
     border-bottom: 1px solid #eee;
 }
 
-.blinkit-or-divider span {
+.movie-or-divider span {
     padding: 0 10px;
 }
 
-.blinkit-social-login {
+.movie-social-login {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-bottom: 20px;
 }
 
-.blinkit-google-btn,
-.blinkit-email-btn {
+.movie-google-btn,
+.movie-email-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,25 +111,25 @@
     transition: background-color 0.2s;
 }
 
-.blinkit-google-btn:hover,
-.blinkit-email-btn:hover {
+.movie-google-btn:hover,
+.movie-email-btn:hover {
     background-color: #f9f9f9;
 }
 
-.blinkit-social-icon {
+.movie-social-icon {
     font-size: 15px;
     margin-right: 10px;
     font-weight: bold;
 }
 
-.blinkit-terms-text {
+.movie-terms-text {
     font-size: 12px;
     color: #999;
     text-align: center;
     line-height: 1.5;
 }
 
-.blinkit-terms-text a {
-    color: #10B981;
+.movie-terms-text a {
+    color: #0400ff;
     text-decoration: none;
 }

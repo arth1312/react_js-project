@@ -9,6 +9,7 @@ import { uploadImage } from "../Services/imageUpload";
 
 const AddMovie = () => {
     const { isCreated, isError } = useSelector(state => state.movieReducer);
+    const { user } = useSelector(state => state.userReducer);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const intialState = {
@@ -98,6 +99,17 @@ const AddMovie = () => {
         return isValid;
     };
 
+    const isFormValid = () => {
+        return (
+            inputForm.title.trim() &&
+            inputForm.desc.trim() &&
+            inputForm.actor &&
+            inputForm.director &&
+            inputForm.category &&
+            inputForm.image
+        );
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!validate()) return;
@@ -112,6 +124,12 @@ const AddMovie = () => {
             navigate("/")
         }
     }, [isCreated]);
+
+    useEffect(() => {
+        if (!user) {
+            navigate("/login")
+        }
+    }, [user]);
 
     return (
         <Container className="add-movie-container">
@@ -216,6 +234,7 @@ const AddMovie = () => {
                         >
                             <option value="">Select Category</option>
                             <option value="Bollywood">Bollywood</option>
+                            <option value="Gujarati" selected={inputForm.category == "Gujarati"}>Gujarati</option>
                             <option value="South Indian">South Indian</option>
                             <option value="Horror">Horror</option>
                             <option value="Action">Action</option>
@@ -249,7 +268,7 @@ const AddMovie = () => {
                 </Form.Group>
 
                 <div className="form-actions">
-                    <Button type="submit" className="submit-btn">
+                    <Button type="submit" className="submit-btn" disabled={!isFormValid()}>
                         Add Product
                     </Button>
                 </div>
